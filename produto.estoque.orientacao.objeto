@@ -1,0 +1,66 @@
+package applicattion;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+import entities.Product;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		Product product = new Product();
+		JOptionPane.showMessageDialog(null, "Enter products data: ");
+		product.name = JOptionPane.showInputDialog("Name: ");
+		product.price = Double.parseDouble(JOptionPane.showInputDialog("Price: "));
+		product.quantity = Integer.parseInt(JOptionPane.showInputDialog("Quantity in stock: "));
+		
+		JOptionPane.showMessageDialog(null, product);
+		
+		int quantity = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the number of products to be added in stock: "));
+		product.addProducts(quantity);
+		
+		JOptionPane.showMessageDialog(null, "Update data: "+ product);
+		
+		quantity = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the number of products to be removed from stock: "));
+		product.removeProducts(quantity);
+		
+		JOptionPane.showMessageDialog(null, "Update data: "+ product);
+		
+		sc.close();
+	}
+
+}
+package entities;
+
+public class Product {
+	
+	public String name;
+	public double price;
+	public int quantity;
+	
+	public double totalValueInStock() {
+		return price * quantity;
+	}
+	public void addProducts(int quantity) {
+		this.quantity += quantity;
+		
+	}
+	public void removeProducts(int quantity) {
+		this.quantity -= quantity;
+	}
+	public String toString() {
+		return name 
+				+ "\n $ "
+				+ String.format("%.2f", price)
+				+ ", \n"
+				+ quantity
+				+ " units in stock, \nTotal: $ "
+				+ String.format("%.2f",totalValueInStock());
+	}
+}
