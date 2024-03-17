@@ -2,6 +2,7 @@ package matriz;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Scanner;
 
@@ -15,9 +16,13 @@ public class Matrizes {
 		
 		LocalDate r1 = LocalDate.ofInstant(d06, ZoneId.systemDefault());
 		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal"));
-	
+		LocalDateTime r3 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
+		LocalDateTime r4 = LocalDateTime.ofInstant(d06, ZoneId.of("Portugal"));
 		System.out.println("ri = "+ r1);
 		System.out.println("ri = "+ r2);
+		System.out.println("ri = "+ r3);
+		System.out.println("ri = "+ r4);
+		
 
     }
 }
