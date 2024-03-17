@@ -1,0 +1,23 @@
+package matriz;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Scanner;
+
+public class Matrizes {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Instant d06 = Instant.parse("2022-07-20T01:30:26Z");
+		
+		LocalDate r1 = LocalDate.ofInstant(d06, ZoneId.systemDefault());
+		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal"));
+	
+		System.out.println("ri = "+ r1);
+		System.out.println("ri = "+ r2);
+
+    }
+}
